@@ -17,7 +17,6 @@
       getTextGate("b65af91910b68bd4", "5967729549ac8700110001c2")
         .then(results => {
           this.setState({TextGateData: results})
-          console.log('recieved the text gate data', results);
         })
         .catch(error => {
           console.error(error);

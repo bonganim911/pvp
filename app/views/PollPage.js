@@ -14,7 +14,7 @@
     }
 
     fetchPoll(){
-      getPoll(window.sessionStorage.getItem("widgetId"), window.sessionStorage.getItem("token"))
+      getPoll(window.localStorage.getItem("token"), window.localStorage.getItem("widgetId"))
         .then(results => {
           this.setState({PollData: results})
         })
@@ -40,8 +40,7 @@
           return (
                 <li key={index} className="list-group-item">
                      <span className="badge">{poll.nbr_gate_interactions_percentage}%</span>
-                     <span className="badge">{poll.nbr_gate_interactions}</span>Option 
-                    <strong>{poll.answer}</strong>
+                     <span className="badge">{poll.nbr_gate_interactions}</span>Option {index + 1}: <strong>{poll.answer}</strong>
                 </li>
 
             )

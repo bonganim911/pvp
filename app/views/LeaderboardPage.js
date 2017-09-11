@@ -14,7 +14,7 @@ class LeaderboardPage extends Component {
   }
 
   fetchLeaderboard(){
-    getLeaderboard(window.sessionStorage.getItem("widgetId"), window.sessionStorage.getItem("token"))
+    getLeaderboard(window.localStorage.getItem("token"), window.localStorage.getItem("widgetId"))
       .then(results => {
         this.setState({leaderboardData: results})
       })

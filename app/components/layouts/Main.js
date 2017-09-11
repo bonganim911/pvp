@@ -6,6 +6,10 @@ import TopHeader from '../common/TopHeader';
 import { correctHeight, detectBody } from './Helpers';
 
 class Main extends React.Component {
+    constructor(props){
+        super(props);
+        console.log('this are the props from main page',props);
+    }
 
     render() {
         let wrapperClass = "gray-bg " + this.props.location.pathname;

@@ -3,7 +3,10 @@ import { Dropdown } from 'react-bootstrap';
 import { Link, Location } from 'react-router';
 
 class Navigation extends Component {
-
+    constructor(props){
+        super(props);
+        
+    }
     componentDidMount() {
         const { menu } = this.refs;
         $(menu).metisMenu();
@@ -33,8 +36,8 @@ class Navigation extends Component {
                                 PVP 
                             </div>
                         </li>
-                        <li className={this.activeRoute("/vitals")}>
-                            <Link to="/vitals"><i className="fa fa-flask"></i> <span className="nav-label">Vitals</span></Link>
+                        <li className={this.activeRoute("/vital")}>
+                            <Link to="/vital"><i className="fa fa-flask"></i> <span className="nav-label">Vitals</span></Link>
                         </li>
                         <li className={this.activeRoute("/leaderboard")}>
                             <Link to="/leaderboard"><i className="fa fa-flag-checkered"></i> <span className="nav-label">Leaderboad</span></Link>

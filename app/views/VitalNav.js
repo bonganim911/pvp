@@ -10,12 +10,9 @@ class VitalPage extends Component {
     }
   }
   componentWillMount(){
-       window.localStorage.setItem("token",this.props.params.token);
-       window.localStorage.setItem("widgetId",this.props.params.widgetId);   
     this.fetchVital();
   }
   fetchVital(){
-    console.log('local storage', window.localStorage);
     getVital(window.localStorage.getItem("token"), window.localStorage.getItem("widgetId"))
       .then(results => {
         this.setState({widgetInformation: results.widget_summary})
