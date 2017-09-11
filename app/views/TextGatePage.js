@@ -14,7 +14,7 @@
     }
 
     fetchTextGate(){
-      getTextGate("b65af91910b68bd4", "5967729549ac8700110001c2")
+      getTextGate(window.localStorage.getItem("token"), window.localStorage.getItem("widgetId"))
         .then(results => {
           this.setState({TextGateData: results})
         })
