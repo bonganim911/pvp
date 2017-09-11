@@ -47,6 +47,37 @@ export function getLeaderboard (token, widgetId) {
     })
 }
 
+
+export function getPoll (token, widgetId) {
+  const url = getUrl() + "v2?request=GetWidgetPolls&args=" +
+              "{\"widget_id_list\":[" + JSON.stringify(widgetId)  +
+               "],\"platform\":" + "\"produk\"" +
+                " ,\"token\":" + JSON.stringify(token) + "}";
+  console.log(url);
+  return fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(results => {
+      console.log('its coming from here',results.data.documents[0].poll_detail[0]);  
+      return results.data.documents[0].poll_detail[0];
+    })
+}
+
+export function getTextGate (token, widgetId) {
+  const url = getUrl() + "v2?request=GetWidgetTextGateSummary&args=" +
+              "{\"widget_id_list\":[" + JSON.stringify(widgetId)  +
+               "],\"platform\":" + "\"produk\"" +
+                " ,\"token\":" + JSON.stringify(token) + "}";
+  console.log(url);
+  return fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(results => {
+      console.log('its coming from here',results.documents[0]);  
+      return results.documents[0];
+    })
+}
+
 function checkStatus (response){
   if(response.status >= 200 && response.status < 300) {
     return response;

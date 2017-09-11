@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
-import BarChart from '../components/chart/BarChart';
+import SubHeaderPage from './SubHeaderPage';
 
 class Vital extends Component {
   constructor(props){
     super(props);
+    window.sessionStorage.setItem("globalWigetName", this.props.data.name);
+    window.sessionStorage.setItem("globalWigetId", this.props.data.id);
+    window.sessionStorage.setItem("globalStart", this.props.data.start_date);
+    window.sessionStorage.setItem("globaleand", this.props.data.end_date);
   }
 
 
   render(){
-    console.log('props here',this.props);
     return (
       <div>
         {
@@ -24,29 +27,13 @@ class Vital extends Component {
               <div id="summary">
                 <div className="row">
                   <div className="col-xs-12">
-                    <div className="ibox float-e-margins">
-                      <div className="ibox-title">
-                        <h5>
-                          <span className="text-info">{this.props.data.name}</span>
-                          -
-                          <span className="text-muted">{this.props.data.id}</span>
-                        </h5>
-                        <div className="ibox-tools">
-                          <span>
-                            <small>Period:</small>
-                            <strong id="startdate_1">{this.props.data.start_date}</strong>
-                            <small>-</small>
-                            <strong id="enddate_1">{this.props.data.end_date}</strong>
-                          </span>&nbsp; &nbsp;
-                        </div>
-                      </div>
-                      <div className="ibox-content" id="campaign_{this.state.widgetInformation.id}_collapse"
-                      role="tabpanel" aria-labelledby="campaign_1_heading">
+                      <SubHeaderPage />
+                      <div className="ibox-content" id="campaign_{this.state.widgetInformation.id}_collapse" role="tabpanel" aria-labelledby="campaign_1_heading">
                         <div className="row">
-                          <div className="col-md-5 stats">
+                          <div className="col-md-14 stats">
                             <br />
                             <div className="row">
-                              <div className="col-xs-4">
+                              <div className="col-md-2">
                                 <div className="widget  p-sm text-center">
                                   <div className="m-b-xs">
                                     <h2 className="m-xs"> {this.props.data.visits}</h2>
@@ -56,29 +43,7 @@ class Vital extends Component {
                                   </div>
                                 </div>
                               </div>
-                              <div className="col-xs-4">
-                                <div className="widget  p-sm text-center">
-                                  <div className="m-b-xs">
-                                    <h2 className="m-xs">{this.props.data.total_interactions}</h2>
-                                    <div className="label label-info">
-                                      Interactions
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="col-xs-4">
-                                <div className="widget p-sm text-center">
-                                  <div className="m-b-xs">
-                                    <h3 className="m-xs">
-                                      {this.props.data.face_time}
-                                    </h3>
-                                    <div className="label label-info topmargin-10"> Total Face Time </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="row">
-                              <div className="col-xs-4">
+                              <div className="col-md-2">
                                 <div className="widget  p-sm text-center">
                                   <div className="m-b-xs">
                                     <h2 className="m-xs"> {this.props.data.audience}</h2>
@@ -88,8 +53,33 @@ class Vital extends Component {
                                   </div>
                                 </div>
                               </div>
+                              { this.props.data.engagements ?
+                                <div className="col-md-2">
+                                  <div className="widget p-sm text-center">
+                                    <div className="m-b-xs">
+                                      <h2 className="m-xs">{this.props.data.participants}</h2>
+                                      <div className="label label-info">
+                                        Participants
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              :
+                                null
+
+                              }
+                              <div className="col-md-2">
+                                <div className="widget  p-sm text-center">
+                                  <div className="m-b-xs">
+                                    <h2 className="m-xs">{this.props.data.total_interactions}</h2>
+                                    <div className="label label-info">
+                                      Interactions
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               { this.props.data.engagements > 0 ?
-                                <div className="col-xs-4">
+                                <div className="col-md-2">
                                   <div className="widget  p-sm text-center">
                                     <div className="m-b-xs">
                                       <h2 className="m-xs">{this.props.data.engagements}</h2>
@@ -101,7 +91,7 @@ class Vital extends Component {
                                 </div>
                               : null
                               }
-                              <div className="col-xs-4">
+                              <div className="col-md-2">
                                 <div className="widget p-sm text-center">
                                   <div className="m-b-xs">
                                     <h3 className="m-xs">
@@ -111,34 +101,23 @@ class Vital extends Component {
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="row">
-                              { this.props.data.engagements ?
-                                <div className="col-xs-4">
-                                  <div className="widget p-sm text-center">
-                                    <div className="m-b-xs">
-                                      <h1 className="m-xs">{this.props.data.participants}</h1>
-                                      <div className="label label-info">
-                                        Participants
-                                      </div>
-                                    </div>
+                              <div className="col-md-2">
+                                <div className="widget p-sm text-center">
+                                  <div className="m-b-xs">
+                                    <h3 className="m-xs">
+                                      {this.props.data.face_time}
+                                    </h3>
+                                    <div className="label label-info topmargin-10"> Total Face Time </div>
                                   </div>
                                 </div>
-                              :
-                                null
-
-                              }
+                              </div>
+                              
+                              
+                              
                             </div>
-                          </div>
-
-
-
-
-
-                          
+                          </div> 
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>

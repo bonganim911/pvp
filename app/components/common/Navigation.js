@@ -25,21 +25,25 @@ class Navigation extends Component {
                             <div className="dropdown profile-element"> <span>
                              </span>
                                 <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Example user</strong>
-                             </span> <span className="text-muted text-xs block">Example position<b className="caret"></b></span> </span> </a>
-                                <ul className="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a href="#"> Logout</a></li>
-                                </ul>
+                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Public View Portal</strong>
+                             </span> 
+                              </span> </a>
                             </div>
                             <div className="logo-element">
-                                IN+
+                                PVP 
                             </div>
                         </li>
-                        <li className={this.activeRoute("/main")}>
-                            <Link to="/main"><i className="fa fa-th-large"></i> <span className="nav-label">Main view</span></Link>
+                        <li className={this.activeRoute("/vitals")}>
+                            <Link to="/vitals"><i className="fa fa-flask"></i> <span className="nav-label">Vitals</span></Link>
                         </li>
-                        <li className={this.activeRoute("/minor")}>
-                            <Link to="/minor"><i className="fa fa-th-large"></i> <span className="nav-label">Minor view</span></Link>
+                        <li className={this.activeRoute("/leaderboard")}>
+                            <Link to="/leaderboard"><i className="fa fa-flag-checkered"></i> <span className="nav-label">Leaderboad</span></Link>
+                        </li>
+                        <li className={this.activeRoute("/poll")}>
+                            <Link to="/poll"><i className="fa fa-filter"></i> <span className="nav-label">Poll</span></Link>
+                        </li>
+                        <li className={this.activeRoute("/textgate")}>
+                            <Link to="/textgate"><i className="fa fa-tasks"></i> <span className="nav-label">Text Gate</span></Link>
                         </li>
                     </ul>
 
