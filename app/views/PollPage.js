@@ -1,8 +1,9 @@
   import React, {Component} from 'react';
   import {getPoll} from '../api';
   import SubHeaderPage from './SubHeaderPage';
+  import HorizontalBarChart from '../components/chart/HorizontalBarChart';
 
-  class PollPage extends Component {
+  class PollPage extends Component {  
     constructor(props){
       super(props);
       this.state = {
@@ -25,6 +26,7 @@
 
     render(){
       let poll_details;
+      let graphData;
       if(!this.state.PollData){
         return (
           <div className="ibox float-e-margins">
@@ -36,6 +38,7 @@
               </div>
         )
       } else if(this.state.PollData && this.state.PollData.results){
+        graphData = this.state.PollData.results;
         poll_details = this.state.PollData.results.map((poll, index) => {
           return (
                 <li key={index} className="list-group-item">
@@ -92,8 +95,12 @@
                                           </div>
                                       </div>
                                   </div>
-
-                                  //suppose to be a graph here
+                                  { graphData ?
+                                    <HorizontalBarChart data={graphData} topic={this.state.PollData.label}/> 
+                                    :
+                                    null 
+                                  }
+                                  
                               </div>
                           </div>
                       </div>

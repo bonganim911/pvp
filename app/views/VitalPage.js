@@ -15,7 +15,6 @@ class VitalPage extends Component {
     this.fetchVital();
   }
   fetchVital(){
-    console.log('local storage', window.localStorage);
     getVital(window.localStorage.getItem("token"), window.localStorage.getItem("widgetId"))
       .then(results => {
         this.setState({widgetInformation: results.widget_summary})

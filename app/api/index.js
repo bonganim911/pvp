@@ -3,7 +3,7 @@ let baseV2Url;
 let env_url;
 
 function getUrl(){
-  console.log(process.env);
+  console.log('process must come in here',process.env);
   if(process.env.NODE_ENV === 'development'){
     env_url = "https://galdaganystage.urup.com:4430/api/reports/"
   }else{
@@ -24,8 +24,6 @@ export function getVital (token, widgetId) {
     .then(checkStatus)
     .then(parseJSON)
     .then(results => {
-      console.log(results);
-      console.log(results.data.results[0]);
       return results.data.results[0];
     })
 }
@@ -41,8 +39,6 @@ export function getLeaderboard (token, widgetId) {
     .then(checkStatus)
     .then(parseJSON)
     .then(results => {
-      console.log(results.data);
-      console.log(results.data.results);  
       return results.data.results[0];
     })
 }
@@ -58,7 +54,6 @@ export function getPoll (token, widgetId) {
     .then(checkStatus)
     .then(parseJSON)
     .then(results => {
-      console.log('its coming from here',results.data.documents[0].poll_detail[0]);  
       return results.data.documents[0].poll_detail[0];
     })
 }
@@ -73,7 +68,6 @@ export function getTextGate (token, widgetId) {
     .then(checkStatus)
     .then(parseJSON)
     .then(results => {
-      console.log('its coming from here',results.documents[0]);  
       return results.documents[0];
     })
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SubHeaderPage from './SubHeaderPage';
+import Chart from '../components/chart/BarChart'
 
 class Vital extends Component {
   constructor(props){
@@ -8,10 +9,10 @@ class Vital extends Component {
       window.localStorage.setItem("token",this.props.tokenData);
       window.localStorage.setItem("widgetId",this.props.widgetData);
     }
-    window.localStorage.setItem("globalWigetName", this.props.data.name);
-    window.localStorage.setItem("globalWigetId", this.props.data.id);
-    window.localStorage.setItem("globalStart", this.props.data.start_date);
-    window.localStorage.setItem("globaleand", this.props.data.end_date);
+    window.sessionStorage.setItem("globalWigetName", this.props.data.name);
+    window.sessionStorage.setItem("globalWigetId", this.props.data.id);
+    window.sessionStorage.setItem("globalStart", this.props.data.start_date);
+    window.sessionStorage.setItem("globaleand", this.props.data.end_date);
     
   }
 
@@ -116,14 +117,17 @@ class Vital extends Component {
                                   </div>
                                 </div>
                               </div>
-                              
-                              
-                              
                             </div>
                           </div> 
                         </div>
                       </div>
                   </div>
+                  {
+                    this.props.data ?
+                      <Chart  data={this.props.data}/>
+                    :
+                   null
+                  }
                 </div>
               </div>
             </div>

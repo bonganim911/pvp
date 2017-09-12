@@ -48,8 +48,6 @@
             )
       })
     }
-
-    console.log('this is the map', this.state.TextGateData.results);
       return (
           <div>
               <div className="wrapper wrapper-content animated fadeInRight ecommerce">
