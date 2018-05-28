@@ -5,7 +5,7 @@ import { Link, Location } from 'react-router';
 class Navigation extends Component {
     constructor(props){
         super(props);
-        
+
     }
     componentDidMount() {
         const { menu } = this.refs;
@@ -23,24 +23,24 @@ class Navigation extends Component {
     render() {
         return (
             <nav className="navbar-default navbar-static-side" role="navigation">
-                    <ul className="nav metismenu" id="side-menu" ref="menu">
-                        <li className="nav-header">
-                            <div className="dropdown profile-element"> <span>
-                             </span>
-                                <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Public View Portal</strong>
-                             </span> 
-                              </span> </a>
-                            </div>
-                            <div className="logo-element">
-                                PVP 
-                            </div>
-                        </li>
-                        <li className={this.activeRoute("/vital")}>
-                            <Link to="/vital"><i className="fa fa-flask"></i> <span className="nav-label">Vitals</span></Link>
-                        </li>
-                        <li className={this.activeRoute("/leaderboard")}>
-                            <Link to="/leaderboard"><i className="fa fa-flag-checkered"></i> <span className="nav-label">Leaderboad</span></Link>
+              <ul className="nav metismenu" id="side-menu" ref="menu">
+                <li className="nav-header">
+                  <div className="dropdown profile-element"> <span>
+                  </span>
+                    <a data-toggle="dropdown" className="dropdown-toggle" href="#">
+                      <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Public View Portal</strong>
+                      </span>
+                      </span> </a>
+                  </div>
+                  <div className="logo-element">
+                    PVP
+                  </div>
+                </li>
+                <li className={this.activeRoute("/vital")}>
+                  <Link to="/vital"><i className="fa fa-flask"></i> <span className="nav-label">Vitals</span></Link>
+                </li>
+                <li className={this.activeRoute("/leaderboard")}>
+                  <Link to="/leaderboard"><i className="fa fa-flag-checkered"></i> <span className="nav-label">Leaderboard</span></Link>
                         </li>
                         <li className={this.activeRoute("/poll")}>
                             <Link to="/poll"><i className="fa fa-filter"></i> <span className="nav-label">Poll</span></Link>
